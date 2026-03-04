@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | স্বপ্নতরী ফাউন্ডেশন</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --accent-blue: #3498db;
+            --soft-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-gray: #7f8c8d;
+            --gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--soft-bg);
+            color: var(--primary-dark);
+            line-height: 1.6;
+        }
+
+        /* হেডার ও সাব-টাইটেল স্টাইল */
+        .header {
+            background: var(--white);
+            padding: 40px 0 30px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            background: #eee;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 4px solid var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h2 {
+            margin: 5px 0;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .sub-title-1 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .sub-title-2 {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        /* হিরো সেকশন ও গ্লাস-মরফিজম স্লোগান */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 25px; 
+            font-weight: 700;
+        }
+
+        .slogan-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 25px 50px;
+            border-radius: 20px;
+            display: inline-block;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .slogan-container p {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 0;
+            font-style: italic;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .slogan-container i {
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.4);
+            position: absolute;
+        }
+
+        .quote-left { top: -15px; left: -15px; }
+        .quote-right { top: -15px; right: -15px; }
+
+        /* কন্টেইনার ও কার্ড */
+        .container {
+            max-width: 1100px;
+            margin: -50px auto 40px;
+            background: var(--white);
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: #f1f7fd;
+            padding: 30px;
+            border-radius: 20px;
+            border-bottom: 5px solid var(--accent-blue);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover { transform: translateY(-5px); }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        /* কাজ সমূহের লেআউট */
+        .main-works-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .category-column h3 {
+            color: var(--accent-blue);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .work-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            counter-reset: work-counter;
+        }
+
+        .work-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            background: #fff;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            text-decoration: none;
+            color: var(--primary-dark);
+        }
+
+        .work-item::before {
+            counter-increment: work-counter;
+            content: counter(work-counter, bengali) ".";
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-right: 12px;
+            min-width: 25px;
+            font-size: 1.1rem;
+        }
+
+        .work-item:hover {
+            transform: translateX(8px);
+            border-color: var(--accent-blue);
+            background-color: #f1f7fd;
+        }
+
+        .work-item i {
+            background: var(--accent-blue);
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-right: 12px;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .work-item h4 {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* যোগাযোগ সেকশন স্টাইল */
+        .contact-section {
+            background: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 25px;
+            margin: 20px auto 40px;
+            max-width: 1100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 280px;
+            padding: 25px;
+            background: #f1f7fd;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .contact-item:hover { background: #e3f0fb; }
+
+        .contact-item i {
+            font-size: 2.2rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        .contact-item h4 { margin: 10px 0; font-size: 1.2rem; }
+        .contact-item p { color: var(--text-gray); margin: 0; }
+
+        @media (max-width: 850px) {
+            .info-grid, .main-works-wrapper { grid-template-columns: 1fr; }
+            .container { width: 92%; padding: 25px; margin-top: -30px; }
+            .hero h1 { font-size: 2.2rem; }
+            .slogan-container { padding: 20px 30px; }
+            .slogan-container p { font-size: 1.1rem; }
+            .header h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="l.png" alt="স্বপ্নতরী লোগো">
+        </div>
+        <h2>স্বপ্নতরী ফাউন্ডেশন</h2>
+        <p class="sub-title-1">একটি সামাজিক ও স্বেচ্ছাসেবী সংগঠন</p>
+        <p class="sub-title-2">চিলাহাটি, ডোমার, নীলফামারী</p>
+    </header>
+
+    <section class="hero">
+        <h1>আমাদের সম্পর্কে</h1>
+        <div class="slogan-container">
+            <i class="fa-solid fa-quote-left quote-left"></i>
+            <p>স্বপ্ন দেখি, স্বপ্ন দেখাবো, স্বপ্নের পৃথিবী আমরাই গড়বো</p>
+            <i class="fa-solid fa-quote-right quote-right"></i>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h3>প্রতিষ্ঠা সাল</h3>
+                <p style="font-size: 1.2rem;"><strong>২৭শে মার্চ, ২০২০</strong></p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-bullseye"></i>
+                <h3>আমাদের লক্ষ্য</h3>
+                <p>শিক্ষা ও সেবামূলক কর্মকাণ্ড পরিচালনা করা</p>
+            </div>
+        </div>
+
+        <h2 style="text-align:center; margin-bottom: 40px; border-top: 1px solid #eee; padding-top: 30px;">ইতিমধ্যে সম্পাদিত কাজ</h2>
+
+        <div class="main-works-wrapper">
+            
+            <div class="category-column">
+                <h3><i class="fa-solid fa-book-open"></i> শিক্ষা বিষয়ক</h3>
+                <div class="work-list">
+                    <a href="https://www.facebook.com/100080040683288/posts/501377162540302/" target="_blank" class="work-item"><i class="fa-solid fa-university"></i><h4>স্বপ্নতরী পাবলিক লাইব্রেরি স্থাপন</h4></a>
+                    <a href="https://www.facebook.com/sopnotorifoundationchilahati/videos/2333105527050262/" target="_blank" class="work-item"><i class="fa-solid fa-graduation-cap"></i><h4>জুলাই স্মৃতি শিক্ষা মেলা ২০২৫</h4></a>
+                    <a href="https://www.facebook.com/100080040683288/posts/629293549748662/" target="_blank" class="work-item"><i class="fa-solid fa-book-quran"></i><h4>ফ্রী কুরআন শিক্ষা কোর্স ২০২৫</h4></a>
+                    <a href="https://www.facebook.com/share/p/17vZSdkzxY/" target="_blank" class="work-item"><i class="fa-solid fa-chalkboard-user"></i><h4>শিক্ষা সেমিনার</h4></a>
+                    <a href="https://www.facebook.com/share/p/1GJR7AFpHM/" target="_blank" class="work-item"><i class="fa-solid fa-school"></i><h4>ফ্রী ক্লাস</h4></a>
+                    <a href="https://www.facebook.com/share/p/1BFcekDhDz/" target="_blank" class="work-item"><i class="fa-solid fa-laptop-code"></i><h4>কম্পিউটার কোর্স</h4></a>
+                    <a href="https://www.facebook.com/share/p/18JWuxgW4w/" target="_blank" class="work-item"><i class="fa-solid fa-microphone-lines"></i><h4>স্বপ্নতরী ডিবেটিং ক্লাব প্রতিষ্ঠা</h4></a>
+                    <a href="https://www.facebook.com/share/v/1D5S9f5wbL/" target="_blank" class="work-item"><i class="fa-solid fa-globe"></i><h4>চিলাহাটি আর্কাইভ ওয়েবসাইট</h4></a>
+                </div>
+            </div>
+
+            <div class="category-column">
+                <h3><i class="fa-solid fa-hand-holding-heart"></i> সামাজিক ও সেবামূলক</h3>
+                <div class="work-list">
+                    <a href="blood-donation.html" class="work-item"><i class="fa-solid fa-droplet"></i><h4>রক্তদান কর্মসূচি</h4></a>
+                    <a href="eid-gift.html" class="work-item"><i class="fa-solid fa-box-open"></i><h4>ঈদ সামগ্রী বিতরণ</h4></a>
+                    <a href="winter-clothes.html" class="work-item"><i class="fa-solid fa-mitten"></i><h4>শীতার্ত মানুষকে কম্বল বিতরণ</h4></a>
+                    <a href="meat-dist.html" class="work-item"><i class="fa-solid fa-cow"></i><h4>কোরবানির মাংস বিতরণ</h4></a>
+                    <a href="tree-plant.html" class="work-item"><i class="fa-solid fa-tree"></i><h4>বৃক্ষরোপণ কর্মসূচি</h4></a>
+                    <a href="cleaning.html" class="work-item"><i class="fa-solid fa-broom"></i><h4>পরিষ্কার পরিছন্নতা কর্মসূচি</h4></a>
+                    <a href="https://www.facebook.com/share/v/1CrzLytDpB/" target="_blank" class="work-item"><i class="fa-solid fa-ban"></i><h4>ইসরাইলি পণ্য বয়কট কর্মসূচি</h4></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <h2 style="color: var(--primary-dark); font-weight: 700;">আমাদের সাথে যোগাযোগ করুন</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fa-solid fa-phone-volume"></i>
+                <h4>ফোন করুন</h4>
+                <p>০১৬০৩৯৩১৯২২</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <h4>ইমেইল করুন</h4>
+                <p>sopnotory26@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-brands fa-facebook-f"></i>
+                <h4>ফেসবুক পেজ</h4>
+                <p><a href="https://www.facebook.com/sopnotorifoundationchilahati" target="_blank" style="text-decoration:none; color:inherit;">Sopnotory Foundation</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 20px; color: #7f8c8d; border-top: 1px solid #eee; background: #fff;">
+        <p style="margin: 0; font-size: 1rem; font-weight: 600;"> স্বপ্নতরী ফাউন্ডেশন | একটি সামাজিক ও স্বেচ্ছাসেবী সংগঠন</p>
+        <p style="margin: 8px 0 0; font-size: 0.9rem;">চিলাহাটি, ডোমার, নীলফামারী।</p>
+    </footer>
+
+</body>
+</html>
