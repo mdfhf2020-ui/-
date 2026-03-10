@@ -29,7 +29,6 @@
             min-height: 100vh;
         }
 
-        /* লিঙ্কের আন্ডারলাইন দূর করার জন্য গ্লোবাল রুল */
         a {
             text-decoration: none !important;
         }
@@ -156,7 +155,6 @@
         .footer-contact .contact-list li { display: flex; align-items: flex-start; gap: 12px; color: #bdc3c7; margin-bottom: 12px; font-size: 0.95rem; }
         .footer-contact i { color: var(--accent-blue); margin-top: 5px; }
 
-        /* Custom Social Icons in Footer */
         .footer-social { margin-top: 25px; display: flex; gap: 15px; }
         .footer-social a { 
             width: 45px; height: 45px; 
@@ -165,7 +163,6 @@
             color: white; font-size: 1.3rem; 
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            text-decoration: none !important; /* আন্ডারলাইন রিমুভ */
         }
         
         .footer-social a.fb:hover { background: var(--fb-blue); transform: translateY(-8px); box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3); border-color: var(--fb-blue); }
@@ -177,12 +174,26 @@
         .dev-credit { color: #3498db; font-weight: 600; text-decoration: none; transition: 0.3s; }
         .dev-credit:hover { color: #fff; text-decoration: none; }
 
+        /* --- Responsive View Changes --- */
         @media (max-width: 850px) {
             .member-grid, .main-works-wrapper { grid-template-columns: 1fr; }
             .container { width: 92%; padding: 25px; margin-top: -30px; }
-            .footer-container { grid-template-columns: 1fr; text-align: center; }
-            .footer-about h3::after, .footer-contact h3::after { left: 50%; transform: translateX(-50%); }
-            .footer-social, .footer-contact .contact-list li { justify-content: center; }
+            
+            .footer-container { 
+                grid-template-columns: 1fr; 
+                text-align: left; /* বাম দিকে অ্যালাইনমেন্ট রাখা হলো */
+                gap: 40px;
+            }
+            .footer-about h3::after, .footer-contact h3::after { 
+                left: 0; 
+                transform: none; 
+            }
+            .footer-social, .footer-contact .contact-list li { 
+                justify-content: flex-start; /* মোবাইল ভিউতেও বাম দিক থেকে শুরু হবে */
+            }
+            .footer-bottom {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -339,7 +350,7 @@
         <div class="footer-container">
             <div class="footer-about">
                 <h3>স্বপ্নতরী ফাউন্ডেশন</h3>
-                <p>এসএসসি ২০২০ ব্যাচের পরবর্তী সকল ব্যাচ কে নিয়ে গড়ে ওঠা একটি সামাজিক, স্বেচ্ছাসেবী ও সম্পূর্ণ অরাজনৈতিক সংগঠন।</p>
+                <p>এসএসসি ২০২০ ব্যাচের পরবর্তী সকল ব্যাচ কে নিয়ে গড়ে ওঠা একটি সামাজিক, স্বেচ্ছাসেবী ও সম্পূর্ণ অরাজনৈতিক সংগঠন।</p>
                 
                 <div class="footer-social">
                     <a href="https://www.facebook.com/sopnotorifoundationchilahati" target="_blank" class="fb" title="Facebook">
@@ -367,7 +378,7 @@
                             <span>০১৭৩০-২২১৯৪০ (যুবায়ের)</span>
                         </div>
                     </li>
-                    <li><i class="fa-solid fa-earth-asia"></i> অরাজনৈতিক ও সেবামূলক সংগঠন</li>
+                    
                 </ul>
             </div>
         </div>
@@ -380,4 +391,3 @@
 
 </body>
 </html>
-
